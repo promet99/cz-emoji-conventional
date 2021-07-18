@@ -1,0 +1,83 @@
+{
+  "env": {
+    "node": true,
+    "jest": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/extensions": [".js", ".ts"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts", ".d.ts"]
+      }
+    }
+  },
+  "rules": {
+    "no-var": "warn",
+    "getter-return": "warn",
+    "no-extra-semi": "warn",
+    "no-empty": "warn",
+    "@typescript-eslint/no-empty-function": [
+      "warn",
+      {
+        "allow": ["arrowFunctions"]
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "warn",
+    "no-template-curly-in-string": "warn",
+    "array-callback-return": "warn",
+    "dot-notation": "warn",
+    "no-throw-literal": "warn",
+    "prefer-regex-literals": "warn",
+    "require-await": "warn",
+    "object-shorthand": "warn",
+    "no-unneeded-ternary": "warn",
+    "eqeqeq": ["warn", "smart"],
+    "prefer-const": ["warn", {
+      "destructuring": "all"
+    }],
+    "sort-imports": [
+      "warn",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": true
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        },
+        "groups": ["builtin", "external", "parent", "sibling", "index"]
+      }
+    ],
+    "import/no-anonymous-default-export": ["warn", {
+      "allowObject": true
+    }],
+    "import/newline-after-import": ["warn", {
+      "count": 1
+    }]
+  }
+}
