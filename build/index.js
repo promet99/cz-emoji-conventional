@@ -175,18 +175,18 @@ var prompter = function (cz, commit) {
         // parentheses are only needed when a scope is present
         var scope = answers.scope ? "(" + answers.scope + ")" : "";
         // Add issue to head
-        var headIssue = answers.issues ? " (" + answers.issues + ")" : "";
+        var headIssue = answers.issues ? " (".concat(answers.issues, ")") : "";
         // Hard limit this line in the validate
         var head = answers.type + scope + ": " + answers.subject + headIssue;
         // Wrap these lines at options.maxLineWidth characters
-        var body = answers.body ? word_wrap_1.default(answers.body, wrapOptions) : false;
+        var body = answers.body ? (0, word_wrap_1.default)(answers.body, wrapOptions) : false;
         // Apply breaking change prefix, removing it if already present
         var breaking = answers.breaking ? answers.breaking.trim() : "";
         breaking = breaking
             ? "BREAKING CHANGE: " + breaking.replace(/^BREAKING CHANGE: /, "")
             : "";
-        breaking = breaking ? word_wrap_1.default(breaking, wrapOptions) : false;
-        var issues = answers.issues ? word_wrap_1.default(answers.issues, wrapOptions) : false;
+        breaking = breaking ? (0, word_wrap_1.default)(breaking, wrapOptions) : false;
+        var issues = answers.issues ? (0, word_wrap_1.default)(answers.issues, wrapOptions) : false;
         commit([head, body, breaking, issues].filter(function (e) { return e; }).join("\n\n"));
     });
 };

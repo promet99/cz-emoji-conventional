@@ -1,16 +1,19 @@
 {
   "name": "cz-emoji-conventional",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "commitizen adapter for conventional commit messages with emoji",
   "repository": {
     "type": "git",
-    "url": "https://github.com/promet99/cz-emoji-conventional.git",
-    "directory": "/"
+    "url": "https://github.com/promet99/cz-emoji-conventional.git"
+  },
+  "bugs": {
+    "url": "https://github.com/promet99/cz-emoji-conventional/issues"
   },
   "main": "build/index.js",
   "scripts": {
     "commit": "cz",
     "lint": "eslint ./",
+    "build": "tsc",
     "test": "echo \"Error: too lazy to write test\" && exit 1"
   },
   "author": "Promet99 (https://github.com/promet99)",
@@ -32,20 +35,20 @@
     }
   },
   "dependencies": {
-    "chalk": "^4.1.1",
-    "commitizen": "^4.2.4",
+    "chalk": "4.1.2",
+    "commitizen": "^4.3.0",
     "word-wrap": "^1.2.3"
   },
   "devDependencies": {
-    "@types/node": "^16.3.3",
-    "@typescript-eslint/eslint-plugin": "^4.28.3",
-    "@typescript-eslint/parser": "^4.28.3",
-    "eslint": "^7.31.0",
+    "@types/node": "^20.4.2",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-react": "^7.24.0",
-    "husky": "^7.0.1",
-    "prettier": "^2.3.2",
+    "husky": "^8.0.3",
+    "prettier": "^3.0.0",
     "pretty-quick": "^3.1.1",
-    "typescript": "^4.3.5"
+    "typescript": "^5.1.6"
   }
 }
