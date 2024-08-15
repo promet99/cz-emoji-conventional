@@ -1,13 +1,27 @@
 import { green, red } from "chalk";
 import { configLoader } from "commitizen";
 import wrap from "word-wrap";
-
-import { types } from "./constant";
+import * as path from 'path';
+import * as fs from 'fs';
+import { types } from "./constant"; 
 
 const config = configLoader.load() || {};
 
+var customTypesPath = path.resolve(__dirname, '../../../czCustomTypes.cjs');
+
+let customTypes = {};
+
+if (fs.existsSync(customTypesPath)) {
+    try {
+      customTypes = require(customTypesPath);
+     
+    } catch (error) {
+        console.error("Error loading custom types:", error);
+    }
+}
+
 const options = {
-  types: config.types || types,
+  types: Object.keys(customTypes).length ? customTypes : config.types || types,
   defaultType: process.env.CZ_TYPE || config.defaultType,
   defaultScope: process.env.CZ_SCOPE || config.defaultScope,
   defaultSubject: process.env.CZ_SUBJECT || config.defaultSubject,

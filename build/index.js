@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -7,10 +30,22 @@ exports.prompter = void 0;
 var chalk_1 = require("chalk");
 var commitizen_1 = require("commitizen");
 var word_wrap_1 = __importDefault(require("word-wrap"));
+var path = __importStar(require("path"));
+var fs = __importStar(require("fs"));
 var constant_1 = require("./constant");
 var config = commitizen_1.configLoader.load() || {};
+var customTypesPath = path.resolve(__dirname, '../../../czCustomTypes.cjs');
+var customTypes = {};
+if (fs.existsSync(customTypesPath)) {
+    try {
+        customTypes = require(customTypesPath);
+    }
+    catch (error) {
+        console.error("Error loading custom types:", error);
+    }
+}
 var options = {
-    types: config.types || constant_1.types,
+    types: Object.keys(customTypes).length ? customTypes : config.types || constant_1.types,
     defaultType: process.env.CZ_TYPE || config.defaultType,
     defaultScope: process.env.CZ_SCOPE || config.defaultScope,
     defaultSubject: process.env.CZ_SUBJECT || config.defaultSubject,
