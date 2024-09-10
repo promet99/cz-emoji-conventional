@@ -12,7 +12,7 @@
   "main": "build/index.js",
   "scripts": {
     "commit": "cz",
-    "lint": "eslint ./",
+    "lint": "eslint ./ --ignore-pattern 'build/*'",
     "build": "tsc",
     "test": "echo \"Error: too lazy to write test\" && exit 1"
   },

@@ -1,23 +1,24 @@
+import * as fs from "fs";
+import * as path from "path";
+
 import { green, red } from "chalk";
 import { configLoader } from "commitizen";
 import wrap from "word-wrap";
-import * as path from 'path';
-import * as fs from 'fs';
-import { types } from "./constant"; 
+
+import { types } from "./constant";
 
 const config = configLoader.load() || {};
 
-var customTypesPath = path.resolve(__dirname, '../../../czCustomTypes.cjs');
+const customTypesPath = path.resolve(__dirname, "../../../czCustomTypes.cjs");
 
 let customTypes = {};
 
 if (fs.existsSync(customTypesPath)) {
-    try {
-      customTypes = require(customTypesPath);
-     
-    } catch (error) {
-        console.error("Error loading custom types:", error);
-    }
+  try {
+    customTypes = require(customTypesPath);
+  } catch (error) {
+    console.error("Error loading custom types:", error);
+  }
 }
 
 const options = {
