@@ -39,6 +39,22 @@ In order to use, install `commitizen` and `cz-emoji-conventional`. Then, just ad
   },
 ```
 
+### Using with `commitlint`
+If you wish to use this adapter with `commitlint`, use `commitlint-config-gitmoji` as  configuration
+```
+npm install -D commitlint-config-gitmoji
+```
+Then set `useGitmojis` to `true` in the `commitizen` config 
+```json
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-emoji-conventional",
+      "useGitmojis": true
+    }
+  },
+```
+
+
 ## Configuration
 
 Configuration options of [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog) can be used.
