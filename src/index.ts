@@ -5,7 +5,7 @@ import { green, red } from "chalk";
 import { configLoader } from "commitizen";
 import wrap from "word-wrap";
 
-import { types } from "./constant";
+import { gitmojiByType, types } from "./constant";
 
 const config = configLoader.load() || {};
 
@@ -79,15 +79,19 @@ export const prompter = (
 ) => {
   const typeList = Object.keys(options.types);
   const length = typeList.reduce((a, c) => Math.max(a, c.length), 0) + 2;
-  const choices = typeList.map((t) => ({
-    name:
-      options.types[t].emoji +
-      " " +
-      (t + ":").padEnd(length) +
-      " " +
-      options.types[t].description,
-    value: options.types[t].emoji + " " + t,
-  }));
+  const choices = typeList.map((t) => {
+    const emoji = config?.useGitmojis ? gitmojiByType[t] : options.types[t].emoji;
+
+    return {
+      name:
+        emoji +
+        " " +
+        (t + ":").padEnd(length) +
+        " " +
+        options.types[t].description,
+      value: emoji + " " + t,
+    }
+  });
 
   cz.prompt([
     {
