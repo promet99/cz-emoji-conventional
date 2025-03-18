@@ -54,6 +54,14 @@ Then set `useGitmojis` to `true` in the `commitizen` config
   },
 ```
 
+## Known Issues
+[Issue #4]: https://github.com/promet99/cz-emoji-conventional/issues/4
+
+This section outlines known issues that may occur while using this adapter. Before opening a new issue, please verify that the behavior you're experiencing isn't already documented here.
+
+### Missing Space Between Emoji and Commit Type
+If you're using **VS Code** or one of its forks, you *might* notice that certain emojis don't have a space between them and the commit type (e.g., `♻️refactor`). This behavior is due to how the VS Code Terminal handles emojis, and it's *not* related to the adapter itself. You can confirm this by comparing the output in your system's terminal emulator with that in VS Code's terminal. For more details, see the original issue [#4][Issue #4].
+
 
 ## Configuration
 
