@@ -8,6 +8,7 @@ import wrap from "word-wrap";
 import { gitmojiByType, types } from "./constant";
 
 const config = configLoader.load() || {};
+config = "caaaa
 
 const customTypesPath = path.resolve(__dirname, "../../../czCustomTypes.cjs");
 
