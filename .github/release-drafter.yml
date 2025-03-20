@@ -30,54 +30,54 @@ autolabeler:
   - label: 'feat'
     title: 
       - '/^feat/i'
-      - '/^. feat/i'
+      - '/^.{1,3} feat/i'
     branch: 
       - '/^feat/i'
   - label: 'fix'
     title: 
       - '/^fix/i'
-      - '/^. fix/i'
+      - '/^.{1,3} fix/i'
     branch: 
       - '/^fix/i'
   - label: 'chore'
     title: 
       - '/^chore/i'
-      - '/^. chore/i'
+      - '/^.{1,3} chore/i'
     branch: 
       - '/^chore/i'
   - label: 'docs'
     title: 
       - '/^docs/i'
-      - '/^. docs/i'
+      - '/^.{1,3} docs/i'
     branch: 
       - '/^docs/i'
   - label: 'refactor'
     title: 
       - '/^refactor/i'
-      - '/^. refactor/i'
+      - '/^.{1,3} refactor/i'
     branch: 
       - '/^refactor/i'
   - label: 'perf'
     title: 
       - '/^perf/i'
-      - '/^. perf/i'
+      - '/^.{1,3} perf/i'
     branch: 
       - '/^perf/i'
   - label: 'test'
     title: 
       - '/^test/i'
-      - '/^. test/i'
+      - '/^.{1,3} test/i'
     branch: 
       - '/^test/i'
   - label: 'ci'
     title: 
       - '/^ci/i'
-      - '/^. ci/i'
+      - '/^.{1,3} ci/i'
     branch: 
       - '/^ci/i'
   - label: 'build'
     title: 
       - '/^build/i'
-      - '/^. build/i'
+      - '/^.{1,3} build/i'
     branch: 
       - '/^build/i'
