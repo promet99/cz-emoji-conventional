@@ -1,0 +1,22 @@
+name: Lint code
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.JS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint code
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
