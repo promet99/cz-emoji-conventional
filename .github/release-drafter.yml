@@ -1,0 +1,83 @@
+name-template: 'v$RESOLVED_VERSION 🌈'
+tag-template: 'v$RESOLVED_VERSION'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+change-title-escapes: '\<*_&'
+categories:
+  - title: '🚀 Features'
+    labels: 
+      - 'feat'
+  - title: '🐛 Bug Fixes'
+    labels: 
+      - 'fix'
+  - title: '🛠 Maintenance'
+    labels: 
+      - 'chore' 
+      - 'refactor' 
+      - 'perf'
+  - title: '📝 Documentation'
+    labels: 
+      - 'docs'
+  - title: '⚡ Other Changes'
+    labels: 
+      - 'test'
+      - 'ci'
+      - 'build'
+template: |
+  ## Changes
+
+  $CHANGES
+autolabeler:
+  - label: 'feat'
+    title: 
+      - '/^feat/i'
+      - '/^.{1,3} feat/i'
+    branch: 
+      - '/^feat/i'
+  - label: 'fix'
+    title: 
+      - '/^fix/i'
+      - '/^.{1,3} fix/i'
+    branch: 
+      - '/^fix/i'
+  - label: 'chore'
+    title: 
+      - '/^chore/i'
+      - '/^.{1,3} chore/i'
+    branch: 
+      - '/^chore/i'
+  - label: 'docs'
+    title: 
+      - '/^docs/i'
+      - '/^.{1,3} docs/i'
+    branch: 
+      - '/^docs/i'
+  - label: 'refactor'
+    title: 
+      - '/^refactor/i'
+      - '/^.{1,3} refactor/i'
+    branch: 
+      - '/^refactor/i'
+  - label: 'perf'
+    title: 
+      - '/^perf/i'
+      - '/^.{1,3} perf/i'
+    branch: 
+      - '/^perf/i'
+  - label: 'test'
+    title: 
+      - '/^test/i'
+      - '/^.{1,3} test/i'
+    branch: 
+      - '/^test/i'
+  - label: 'ci'
+    title: 
+      - '/^ci/i'
+      - '/^.{1,3} ci/i'
+    branch: 
+      - '/^ci/i'
+  - label: 'build'
+    title: 
+      - '/^build/i'
+      - '/^.{1,3} build/i'
+    branch: 
+      - '/^build/i'

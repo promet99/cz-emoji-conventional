@@ -1,0 +1,33 @@
+name: Update draft release
+
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+      - name: Extract version from package.json
+        id: extract_version
+        run: |
+          echo "EXTRACTED_VERSION=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
+      - name: Run release drafter
+        uses: release-drafter/release-drafter@v6
+        with:
+          version: ${{ steps.extract_version.outputs.EXTRACTED_VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
