@@ -14,7 +14,7 @@
     "commit": "cz",
     "lint": "eslint ./ --ignore-pattern 'build/*'",
     "build": "tsc",
-    "test": "echo \"Error: too lazy to write test\" && exit 1"
+    "test": "node --test test/*.test.mjs"
   },
   "author": "Promet99 (https://github.com/promet99)",
   "license": "ISC",
