@@ -10,6 +10,7 @@
     "url": "https://github.com/promet99/cz-emoji-conventional/issues"
   },
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "files": [
     "build",
     "czCustomTypes.example.cjs"
@@ -22,6 +23,9 @@
   },
   "author": "Promet99 (https://github.com/promet99)",
   "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  },
   "keywords": [
     "commitizen",
     "conventional-commit",
