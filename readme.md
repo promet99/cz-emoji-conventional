@@ -54,6 +54,27 @@ Then set `useGitmojis` to `true` in the `commitizen` config
   },
 ```
 
+### Custom commit types
+
+To replace the built-in types with your own, create `czCustomTypes.cjs` in your project root, next to `package.json`:
+
+```js
+module.exports = {
+  customType: {
+    description: "A custom type",
+    title: "Custom Types",
+    emoji: "🚀",
+  },
+};
+```
+
+`emoji` and `description` are what you see in the type prompt. The file is loaded with `require`, so the `.cjs` extension is required even in an ESM project.
+
+Two things to watch for:
+
+- Custom types **replace** the built-in ones instead of adding to them. Re-declare any built-in type you want to keep.
+- `useGitmojis` looks emoji up by type name from the Gitmoji set, which has no entry for your own names. Leave it off when using custom types, or your types render without an emoji.
+
 ## Known Issues
 [Issue #4]: https://github.com/promet99/cz-emoji-conventional/issues/4
 
