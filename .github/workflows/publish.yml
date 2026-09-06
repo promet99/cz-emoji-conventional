@@ -14,6 +14,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
 
     steps:
       - name: Check out Git repository
@@ -31,10 +32,11 @@ jobs:
       - name: Build package
         run: npm run build
 
+      # Authenticates via npm Trusted Publishing (OIDC) - no token secret.
+      # Requires the trusted publisher to be configured on npmjs.com and
+      # npm CLI >= 11.5.1, which node-version 'latest' provides.
       - name: Publish to NPM
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Set up Node.JS with GPR registry
         uses: actions/setup-node@v4
