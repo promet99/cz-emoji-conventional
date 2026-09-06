@@ -10,6 +10,10 @@
     "url": "https://github.com/promet99/cz-emoji-conventional/issues"
   },
   "main": "build/index.js",
+  "files": [
+    "build",
+    "czCustomTypes.example.cjs"
+  ],
   "scripts": {
     "commit": "cz",
     "lint": "eslint .",
@@ -29,11 +33,6 @@
       "path": "./build/index.js"
     }
   },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
   "dependencies": {
     "chalk": "4.1.2",
     "commitizen": "^4.3.2",
@@ -45,9 +44,7 @@
     "eslint": "^9.39.5",
     "eslint-plugin-import": "^2.32.0",
     "globals": "^17.12.0",
-    "husky": "^9.1.7",
     "prettier": "^3.9.6",
-    "pretty-quick": "^4.2.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.69.0"
   }

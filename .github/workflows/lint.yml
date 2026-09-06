@@ -1,4 +1,4 @@
-name: Lint code
+name: Lint and test
 
 on:
   pull_request:
@@ -11,15 +11,21 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node.JS
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 'latest'
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Build package
+        run: npm run build
+
       - name: Lint code
         run: npm run lint
+
+      - name: Run tests
+        run: npm test

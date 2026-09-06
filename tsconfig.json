@@ -4,7 +4,6 @@
     "lib": [
       "es2022"
     ],
-    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -20,7 +19,6 @@
     ]
   },
   "include": [
-    "src/**/*.js",
     "src/**/*.ts",
     "./modules.d.ts"
   ],
