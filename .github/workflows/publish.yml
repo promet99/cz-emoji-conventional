@@ -5,9 +5,15 @@ on:
     types:
       - published
 
+  workflow_dispatch:
+
 jobs:
   publish:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Check out Git repository
@@ -34,8 +40,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           registry-url: "https://npm.pkg.github.com"
-        
+          scope: "@promet99"
+
       - name: Publish to GPR
-        run: npm publish
+        # GPR only accepts owner-scoped names; npm keeps the unscoped one.
+        # Last step in the job, so no need to restore package.json.
+        run: |
+          npm pkg set name=@promet99/cz-emoji-conventional
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
