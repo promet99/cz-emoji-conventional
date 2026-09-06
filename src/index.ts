@@ -21,6 +21,7 @@ let customTypes = {};
 
 if (fs.existsSync(customTypesPath)) {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports -- runtime load of a user .cjs file
     customTypes = require(customTypesPath);
   } catch (error) {
     console.error("Error loading custom types:", error);
