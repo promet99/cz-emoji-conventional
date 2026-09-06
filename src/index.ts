@@ -9,7 +9,13 @@ import { gitmojiByType, types } from "./constant";
 
 const config = configLoader.load() || {};
 
-const customTypesPath = path.resolve(__dirname, "../../../czCustomTypes.cjs");
+const customTypesPath = path.resolve(
+  __dirname,
+  "..",
+  "..",
+  "..",
+  "czCustomTypes.cjs"
+);
 
 let customTypes = {};
 
